@@ -1,0 +1,47 @@
+export interface IProveedor {
+  idProveedor: number;
+  idEmpresa?: number;
+  nitoCC: string;
+  digitoVer?: string;
+  tipoDoc?: string;
+  codProveedor: string;
+  nombresC?: string;
+  apellidosC?: string;
+  razonSocialC?: string;
+  nombreP?: string;
+  beneficiario?: string;
+  contacto?: string;
+  direccionP?: string;
+  telefonoP?: string;
+  telefonoP2?: string;
+  faxP?: string;
+  ciudadP?: string;
+  pais?: number;
+  inicPro?: string;
+  regimenTrib?: number;
+  cupoCredito?: number;
+  descComercial?: number;
+  descFinanciero?: number;
+  porcIntereses?: number;
+  plazoPactado?: number;
+  actEconomica?: number;
+  tipoProveedor?: number;
+  tipoCxP?: number;
+  correoElect?: string;
+  porcReteIva?: number;
+  porcReteIca?: number;
+  esAutoretenedor?: boolean;
+  esPersonaN?: boolean;
+  habilitado?: boolean;
+  manMercCons?: boolean;
+  fechaIngreso?: Date;
+  fechaUltTransac?: Date;
+  fechaRetiro?: Date;
+  observacion?: string;
+  fecha?: Date;
+  usuario?: string;
+  expr1?: string;
+  expr2?: string;
+}
+
+export type Proveedores = IProveedor[];

@@ -1,0 +1,275 @@
+/*
+  Copyright (©) Andrea.com.co - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ * Written and developed with  ❤️ by Andrea.com.co
+ * 2020
+ */
+
+@tailwind base;
+@tailwind components;
+
+html {
+  background-color: #F5F5F5;
+}
+
+/* .modal {
+    transition: opacity 0.25s ease;
+} */
+
+.modal {
+  @apply relative p-2 mx-auto w-auto max-w-2xl w-full rounded flex flex-col fixed overflow-x-hidden overflow-y-auto inset-0 justify-center items-center z-50;
+}
+
+.lateral-menu {
+  @apply flex flex-col min-h-screen shadow w-64 border-r bg-andrea;
+}
+
+.menu-item {
+  @apply flex flex-row p-1 items-center cursor-pointer;
+}
+
+.profile {
+  @apply flex flex-col justify-end w-full h-full;
+}
+
+.ul-menu-item {
+  @apply text-xs text-white font-semibold select-none;
+}
+
+.alertbox {
+  @apply flex p-1 flex-row justify-between w-11/12 mx-12 mt-1 text-white border border-andrea rounded bg-andrea;
+}
+
+.input-menu {
+  @apply appearance-none border-b border-white rounded w-full h-6 py-2 px-3 text-gray-700 text-sm leading-tight;
+}
+
+.input-menu:focus {
+  @apply border-transparent;
+}
+
+.toogle-menu {
+  @apply flex flex-row justify-between w-full text-white h-10 bg-white z-50;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 80%;
+  margin: 0px auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-footer {
+  @apply modal-footer flex flex-row justify-center;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+body.modal-active {
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}
+
+.table {
+  @apply table-auto w-full text-xs;
+}
+
+.table-tr {
+  @apply border-b border-gray-500 text-white bg-andrea font-bold;
+}
+
+.select {
+  @apply block text-xs block w-full bg-transparent text-gray-700 border border-andrea px-2 py-1 pr-8 rounded leading-tight;
+}
+
+.select1 {
+  @apply bg-white border border-andrea py-1 pr-2 shadow leading-tight;
+}
+
+.select-rounded {
+  @apply bg-white border border-andrea rounded shadow leading-tight;
+}
+
+.select:focus {
+  @apply outline-none bg-white border-gray-500;
+}
+
+.label {
+  @apply block text-andrea font-semibold text-xs;
+}
+
+.input {
+  @apply appearance-none text-xs block w-full bg-transparent text-gray-700 border border-andrea rounded px-2 py-1 leading-tight;
+}
+
+.input:focus {
+  @apply outline-none bg-white border-gray-500;
+}
+
+.btn-save {
+  @apply mt-2 text-xs  mr-2 shadow-lg text-andrea border border-andrea px-2 py-1 rounded uppercase;
+}
+
+.btn-save-menu {
+  @apply flex justify-center text-xs w-32 h-32 mr-2 shadow-lg text-andrea border border-andrea px-2 py-1 rounded uppercase;
+}
+
+.btn-save-menu:hover {
+  @apply bg-andrea text-white;
+}
+
+.btn-save:hover {
+  @apply bg-andrea text-white;
+}
+
+.btn-primary {
+  @apply mt-2 text-xs  mr-2 shadow-lg text-white bg-andrea border border-white px-2 py-1 rounded uppercase;
+}
+
+.btn-primary:hover {
+  @apply bg-white text-andrea border border-andrea;
+}
+
+.btn-modal {
+  @apply flex justify-center btn-save w-32;
+}
+
+.btn-modal:hover {
+  @apply bg-andrea text-white;
+}
+
+.btn-delete {
+  @apply mt-2 text-xs mr-2 text-red-700 shadow-lg border p-1 border-red-700 rounded uppercase;
+}
+
+.btn-delete:hover {
+  @apply text-white  bg-red-600 border-red-600;
+}
+
+.btn-dark {
+  @apply mt-2 text-xs mr-2 shadow border p-1 rounded;
+}
+
+.btn-dark:hover {
+  @apply bg-white text-andrea;
+}
+
+.btn-dg-dark {
+  @apply mt-2 text-xs mr-2 shadow border p-1 rounded;
+}
+
+.btn-dg-dark:hover {
+  @apply text-red-600 bg-white border-red-600;
+}
+
+.main-div {
+  @apply flex flex-col shadow bg-white border-andrea border-2 rounded mx-auto w-11/12 mt-2 p-2;
+}
+
+.title {
+  @apply flex-row font-bold text-xl text-andrea mb-2;
+}
+
+.card {
+  @apply flex-wrap bg-white  p-2 rounded border-2 border-gray-300;
+}
+
+.card-table {
+  @apply flex-col bg-white mt-2 mb-2 rounded border-2 border-gray-300 relative h-300 overflow-y-auto;
+}
+
+.card-menu {
+  @apply flex-col bg-white mt-2 mb-2 rounded border-2 border-gray-300 relative h-500 overflow-y-auto;
+}
+
+.sub-card {
+  @apply flex flex-wrap justify-center p-1 w-6/12;
+}
+
+li.highlight {
+  @apply text-andrea bg-white;
+}
+
+@screen md {
+  .title {
+    @apply text-base;
+  }
+}
+
+@screen sm {
+  .card-table {
+    @apply h-250;
+  }
+}
+  
+  /* Works on Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: white;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #6700f9;
+    border-radius: 20px;
+    border: 1px solid white;
+  }
+
+@tailwind utilities;
+@tailwind screens;

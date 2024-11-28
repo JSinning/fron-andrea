@@ -1,0 +1,280 @@
+<!--
+  */
+  Copyright (©) Andrea.com.co - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited.
+ * Proprietary and confidential.
+ * Written and developed with  ❤️ by Andrea.com.co
+ * 2020
+ /*
+ -->
+<template>
+  <div class="w-full flex flex-col gap-0">
+    <!-- output -->
+    <div class="flex-row w-full">
+      <AlertBox
+        :output="output.message"
+        :isError="output.isError"
+        @empty="output.message = ''"
+      />
+    </div>
+    <div class="flex flex-col">
+      <Loader v-show="isLoading" />
+    </div>
+
+    <div class="card-table">
+      <table class="table-auto w-full text-xs">
+        <thead>
+          <tr class="border-b border-gray-500 text-white bg-andrea font-bold">
+            <th style="visibility: collapse; display: none">NReparto</th>
+            <th>Cod Individual</th>
+            <th>Hora</th>
+            <th>Pieles</th>
+            <th class="md:w-12">Usuario</th>
+            <th>Sexo</th>
+            <th class="md:w-16">Mesa MC1</th>
+            <th class="md:w-16">Mesa MC2</th>
+            <th>NºVisc</th>
+            <th class="md:w-16">Mesa Visc</th>
+            <th>LP</th>
+            <th>FRIO</th>
+            <th>a</th>
+            <th>b</th>
+            <th>Observacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="border-b border-gray-500"
+            v-for="d in tblSubRepartoHt"
+            :key="d.auton"
+          >
+            <td style="visibility: collapse; display: none">
+              {{ d.nReparto }}
+            </td>
+            <td class="text-center">{{ d.codigoIndiv }}</td>
+            <td class="text-center">{{ d.horaRep }}</td>
+            <td>
+              <PaginatedSelect
+                v-model="d.codPiel"
+                :fetch="codigoPieles"
+                disabled
+              />
+            </td>
+            <td>
+              <PaginatedSelect
+                v-model="d.codVended"
+                :fetch="codigoVendedor"
+                disabled
+              />
+            </td>
+            <td><PaginatedSelect v-model="d.sexo" :fetch="sexo" disabled /></td>
+            <td>
+              <PaginatedSelect
+                v-model="d.mesas1"
+                :fetch="codigoMesa"
+                disabled
+              />
+            </td>
+            <td>
+              <PaginatedSelect
+                v-model="d.mesas2"
+                :fetch="codigoMesa"
+                disabled
+              />
+            </td>
+            <td class="text-center">{{ d.nViscera }}</td>
+            <td>
+              <PaginatedSelect
+                v-model="d.mesasVisc"
+                :fetch="codigoMesa"
+                disabled
+              />
+            </td>
+            <td class="text-center">{{ $booleanToString(d.lavPanz) }}</td>
+            <td class="text-center">{{ $booleanToString(d.frio) }}</td>
+            <td class="text-center">{{ $booleanToString(d.otros) }}</td>
+            <td class="text-center">{{ $booleanToString(d.otros1) }}</td>
+            <td class="text-center">{{ d.observa }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ButtonPagination
+        :key="nReparto"
+        :currentPagination="pagination"
+        :currentDataLength="tblSubRepartoHt.length"
+        @click="loadMore"
+      >
+        Cargar más
+      </ButtonPagination>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import AlertBox from '@/components/reusable/AlertBox.vue';
+import Loader from '@/components/reusable/Loader.vue';
+import PaginatedSelect from '@/components/reusable/PaginatedSelect.vue';
+import ButtonPagination from '@/components/reusable/ButtonPagination.vue';
+import IPagination from '@/types/IPagination';
+import { BaseResponse } from '@/types';
+import IQuery from '@/types/query';
+import RepartoAPI from '@/remote/api/reparto/repartoAPI';
+import {
+  ICodigoPiel,
+  ICodigoVendedor,
+  IMesa,
+  ISubRepartoHt,
+} from '@/remote/api/reparto/types';
+import IInterfaceSelect from '@/models/interfaces/interfaceSelect';
+import { captureException } from '@sentry/browser';
+import moment from 'moment';
+
+@Component({
+  components: {
+    AlertBox,
+    ButtonPagination,
+    Loader,
+    PaginatedSelect,
+  },
+  name: 'SubRepartoHt',
+})
+export default class SubRepartoHt extends Vue {
+  @Prop(Number) public nReparto: number;
+  private isLoading: boolean = false;
+  private pagination: IPagination = {
+    limit: 100,
+    skip: 0,
+  };
+  private output = {
+    isError: false,
+    message: '',
+  };
+
+  private itemsSexo: IInterfaceSelect[] = [];
+
+  private tblSubRepartoHt: ISubRepartoHt[] = [];
+
+  private repartoApi = new RepartoAPI(this.$store.getters.getAuthToken);
+
+  private async mounted() {
+    await this.featchData(this.nReparto);
+  }
+
+  private async featchData(nReparto: number) {
+    this.isLoading = true;
+    try {
+      const response = await this.repartoApi.subRepartoHist.getSubRepartoHt(
+        nReparto,
+        this.pagination,
+      );
+
+      this.tblSubRepartoHt = response.data.map((e: ISubRepartoHt) => {
+        return { ...e, horaRep: moment(e.horaRep).utc().format('LT') };
+      });
+    } catch (e) {
+      captureException(e);
+      this.output = { isError: true, message: e.message };
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  private sexo(p?: IPagination, q?: IQuery) {
+    this.itemsSexo.push(
+      { id: 'M', item: 'Macho' },
+      { id: 'H', item: 'Hembra' },
+    );
+
+    return this.itemsSexo.map<IInterfaceSelect>((e: any) => ({
+      id: e.id,
+      item: e.item,
+    }));
+  }
+
+  private async codigoPieles(p?: IPagination, q?: IQuery) {
+    try {
+      let response: BaseResponse<
+        Array<Pick<ICodigoPiel, 'codProve' | 'codPieles'>>
+      >;
+      if (q.query) {
+        response = await this.repartoApi.subRepartoHist.getCodigoPielFind(q);
+        return response.data.map<IInterfaceSelect>(
+          (e: Pick<ICodigoPiel, 'codProve' | 'codPieles'>) => ({
+            id: e.codProve,
+            item: e.codPieles,
+          }),
+        );
+      }
+      response = await this.repartoApi.subRepartoHist.getCodigoPiel(p);
+      return response.data.map<IInterfaceSelect>(
+        (e: Pick<ICodigoPiel, 'codProve' | 'codPieles'>) => ({
+          id: e.codProve,
+          item: e.codPieles,
+        }),
+      );
+    } catch (e) {
+      captureException(e);
+      this.output = { isError: true, message: e.message };
+    }
+  }
+
+  private async codigoVendedor(p?: IPagination, q?: IQuery) {
+    try {
+      let response: BaseResponse<
+        Array<Pick<ICodigoVendedor, 'codCliente' | 'codTerc'>>
+      >;
+      if (q.query) {
+        response =
+          await this.repartoApi.subRepartoHist.getCodigoVendedorFind(q);
+        return response.data.map<IInterfaceSelect>(
+          (e: Pick<ICodigoVendedor, 'codCliente' | 'codTerc'>) => ({
+            id: e.codCliente,
+            item: e.codTerc,
+          }),
+        );
+      }
+      response = await this.repartoApi.subRepartoHist.getCodigoVendedor(p);
+      return response.data.map<IInterfaceSelect>(
+        (e: Pick<ICodigoVendedor, 'codCliente' | 'codTerc'>) => ({
+          id: e.codCliente,
+          item: e.codTerc,
+        }),
+      );
+    } catch (e) {
+      captureException(e);
+      this.output = { isError: true, message: e.message };
+    }
+  }
+
+  private async codigoMesa(p?: IPagination, q?: IQuery) {
+    try {
+      let response: BaseResponse<Array<Pick<IMesa, 'mesas' | 'descripcionM'>>>;
+      if (q.query) {
+        response = await this.repartoApi.subRepartoHist.getMesaFind(q);
+        return response.data.map<IInterfaceSelect>(
+          (e: Pick<IMesa, 'mesas' | 'descripcionM'>) => ({
+            id: e.mesas,
+            item: e.mesas,
+          }),
+        );
+      }
+      response = await this.repartoApi.subRepartoHist.getMesa(p);
+      return response.data.map<IInterfaceSelect>(
+        (e: Pick<IMesa, 'mesas' | 'descripcionM'>) => ({
+          id: e.mesas,
+          item: e.mesas,
+        }),
+      );
+    } catch (e) {
+      captureException(e);
+      this.output = { isError: true, message: e.message };
+    }
+  }
+
+  private async loadMore() {
+    this.pagination.limit += this.pagination.limit;
+    await this.featchData(this.nReparto);
+  }
+}
+</script>

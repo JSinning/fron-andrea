@@ -1,0 +1,16 @@
+{
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "rules": {
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "forin": false,
+    "no-console": false,
+    "no-var-requires": false,
+    "no-unused-vars": false,
+    "no-var-keyword": false,
+    "prefer-const": false,
+    "no-duplicate-variable": false,
+    "ordered-imports": false
+  },
+  "exclude": ["node_modules"]
+}

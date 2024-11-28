@@ -1,0 +1,292 @@
+#datos_basicos:checked ~ .tab-datos {
+  display: flex;
+}
+
+#datos_basicos:checked ~ .nav label[for='datos_basicos'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#anular:checked ~ .tab-anular {
+  display: flex;
+}
+
+#anular:checked ~ .nav label[for='anular'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#program:checked ~ .tab-progam {
+  display: flex;
+}
+
+#program:checked ~ .nav label[for='program'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#imprimir:checked ~ .tab-imprimir {
+  display: flex;
+}
+
+#imprimir:checked ~ .nav label[for='imprimir'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-basicos-guia:checked ~ .tab-datos-guias {
+  display: flex;
+}
+
+#datos-basicos-guia:checked ~ .nav label[for='datos-basicos-guia'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#peso-anima:checked ~ .tab-peso-anima {
+  display: flex;
+}
+
+#peso-anima:checked ~ .nav label[for='peso-anima'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-adicionales:checked ~ .nav label[for='datos-adicionales'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-adicionales:checked ~ .tab-datos-adicionales {
+  display: flex;
+}
+
+#estado:checked ~ .tab-estado {
+  display: flex;
+}
+
+#estado:checked ~ .nav label[for='estado'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos_salida:checked ~ .tab-salida {
+  display: flex;
+}
+
+#datos_salida:checked ~ .nav label[for='datos_salida'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#pedidos:checked ~ .tab-pedidos {
+  display: flex;
+}
+
+#pedidos:checked ~ .nav label[for='pedidos'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#guias:checked ~ .tab-guias {
+  display: flex;
+}
+
+#guias:checked ~ .nav label[for='guias'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#pagos:checked ~ .tab-pagos {
+  display: flex;
+}
+
+#pagos:checked ~ .nav label[for='pagos'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detalles:checked ~ .tab-detalles {
+  display: flex;
+}
+
+#detalles:checked ~ .nav label[for='detalles'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos:checked ~ .tab-datos-cuarteo {
+  display: flex;
+}
+
+#datos:checked ~ .nav label[for='datos'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detalles:checked ~ .tab-detalles-cuarteo {
+  display: flex;
+}
+
+#detalles:checked ~ .nav label[for='detalles'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#relacion-canal:checked ~ .tab-relacion-canal-cuarteo {
+  display: flex;
+}
+
+#relacion-canal:checked ~ .nav label[for='relacion-canal'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+#confirmar:checked ~ .tab-confirmar-cuarteo {
+  display: flex;
+}
+
+#confirmar:checked ~ .nav label[for='confirmar'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#anualar:checked ~ .tab-anular-cuarteo {
+  display: flex;
+}
+
+#anualar:checked ~ .nav label[for='anualar'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-Canales-DL:checked ~ .tab-datos-Canales-DL {
+  display: flex;
+}
+
+#datos-Canales-DL:checked ~ .nav label[for='datos-Canales-DL'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#visceras-DL:checked ~ .tab-visceras-DL {
+  display: flex;
+}
+
+#visceras-DL:checked ~ .nav label[for='visceras-DL'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#anualar-DL:checked ~ .tab-anualar-DL {
+  display: flex;
+}
+
+#anualar-DL:checked ~ .nav label[for='anualar-DL'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-Clientes-DCJ:checked ~ .tab-datos-Clientes-DCJ {
+  display: flex;
+}
+
+#datos-Clientes-DCJ:checked ~ .nav label[for='datos-Clientes-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detalles-DCJ:checked ~ .tab-detalles-DCJ {
+  display: flex;
+}
+
+#detalles-DCJ:checked ~ .nav label[for='detalles-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#otrosPesoVehiculos-DCJ:checked ~ .tab-otrosPesoVehiculos-DCJ {
+  display: flex;
+}
+
+#otrosPesoVehiculos-DCJ:checked
+  ~ .nav
+  label[for='otrosPesoVehiculos-DCJ']
+  span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-salida-DCJ:checked ~ .tab-datos-salida-DCJ {
+  display: flex;
+}
+
+#datos-salida-DCJ:checked ~ .nav label[for='datos-salida-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#pedidos-DCJ:checked ~ .tab-pedidos-DCJ {
+  display: flex;
+}
+
+#pedidos-DCJ:checked ~ .nav label[for='pedidos-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-Vehiculo-DCJ:checked ~ .tab-datos-Vehiculo-DCJ {
+  display: flex;
+}
+
+#datos-Vehiculo-DCJ:checked ~ .nav label[for='datos-Vehiculo-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#imprimir-DCJ:checked ~ .tab-imprimir-DCJ {
+  display: flex;
+}
+
+#imprimir-DCJ:checked ~ .nav label[for='imprimir-DCJ'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-Clientes-reparto:checked ~ .tab-datos-Cliente-reparto {
+  display: flex;
+}
+
+#datos-Clientes-reparto:checked
+  ~ .nav
+  label[for='datos-Clientes-reparto']
+  span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detallesP1-reparto:checked ~ .tab-detallesP1-reparto {
+  display: flex;
+}
+
+#detallesP1-reparto:checked ~ .nav label[for='detallesP1-reparto'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detallesP2-reparto:checked ~ .tab-detallesP2-reparto {
+  display: flex;
+}
+
+#detallesP2-reparto:checked ~ .nav label[for='detallesP2-reparto'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#imprimir-reparto:checked ~ .tab-imprimir-reparto {
+  display: flex;
+}
+
+#imprimir-reparto:checked ~ .nav label[for='imprimir-reparto'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#datos-basicos-movR:checked ~ .tab-datos-basicos-movR {
+  display: flex;
+}
+
+#datos-basicos-movR:checked ~ .nav label[for='datos-basicos-movR'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#detalles-movR:checked ~ .tab-detalles-movR {
+  display: flex;
+}
+
+#detalles-movR:checked ~ .nav label[for='detalles-movR'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#anualar-movR:checked ~ .tab-anualar-movR {
+  display: flex;
+}
+
+#anualar-movR:checked ~ .nav label[for='anualar-movR'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}
+
+#estado-movR:checked ~ .tab-estado-movR {
+  display: flex;
+}
+
+#estado-movR:checked ~ .nav label[for='estado-movR'] span {
+  background-color: rgba(128, 128, 128, 0.329);
+}

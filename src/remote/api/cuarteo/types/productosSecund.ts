@@ -1,0 +1,48 @@
+export interface IProductosSecund {
+  idCodigo: string;
+  idEmpresa: number;
+  descripcionMer: string;
+  caracteristicas: string;
+  idCategoria: number;
+  idProveedor: string;
+  idUnidMed: number;
+  idUbicacion: number;
+  codigoAgrup: string;
+  stopMax: number;
+  precioV1: number;
+  precioV2: number;
+  precioV3: number;
+  precioV4: number;
+  promKilo: number;
+  pVenCIva: boolean;
+  porcIva: number;
+  porcDesc1: number;
+  porcDesc2: number;
+  porcRFuente: string;
+  tipMercancia: number;
+  tipProd: number;
+  tNivel: number;
+  idTipInven: number;
+  ordCarne: number;
+  tpCarne: number;
+  esIndustrial: boolean;
+  descargaInv: boolean;
+  esCompuesto: boolean;
+  idCodigoPrinc: string;
+  cantidadPartC: number;
+  nota: string;
+  fotoP: string;
+  suspendido: boolean;
+  priorUnid: boolean;
+  cCosto: string;
+  cuentaCont: string;
+  ajustar: boolean;
+  ordenImp: number;
+  imprimeS: boolean;
+  codPais: string;
+  codProd2: string;
+  usuario: string;
+  fecha: string;
+}
+
+export type ProductosSecund = IProductosSecund[];
